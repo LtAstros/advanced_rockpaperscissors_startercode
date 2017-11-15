@@ -17,9 +17,15 @@
 // *************************** YOUR CODE BELOW *******************************
 //******************TEST EARLY AND OFTEN USING console.log() ******************
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
-
 //GLOBAL VARIABLES
-
+function pageload (){
+        console.log("Help");
+        $("#button").click(function(){        
+                var userInput = $("#input").val();
+                console.log(userInput);
+        });
+}
+$(document).ready(pageload);
 
 
 //FUNCTIONS
