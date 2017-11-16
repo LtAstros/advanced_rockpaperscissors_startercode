@@ -19,9 +19,16 @@
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
 //GLOBAL VARIABLES
 function pageload (){
-        console.log("Help");
         $("#button").click(function(){        
-                var userInput = $("#input").val();
+                var userInput = $("#input").val().toLowerCase();
+                var comInput = Math.floor(Math.random()*3);
+                var comOption = [
+                        "rock",
+                        "paper",
+                        "scissors"
+                ];
+                var comSelection = comOption[comInput];
+                console.log(comSelection);
                 console.log(userInput);
         });
 }
