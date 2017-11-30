@@ -19,7 +19,10 @@
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
 //GLOBAL VARIABLES
 function pageload (){
-        $("#button").click(function(){        
+        var wins = 0;
+        var losses = 0;
+        $("#button").click(function(){
+                $("body").css("color","black");
                 var userInput = $("#input").val().toLowerCase();
                 var comInput = Math.floor(Math.random()*3);
                 var comOption = [
@@ -28,8 +31,57 @@ function pageload (){
                         "scissors"
                 ];
                 var comSelection = comOption[comInput];
-                console.log(comSelection);
-                console.log(userInput);
+                if (userInput === comSelection) {
+                        $("#user-input").text(userInput);
+                        $("#com-input").text(comSelection);
+                        $("#final-result").text("A Tie has occured");
+                } else if (userInput === "rock" && comSelection === "paper") {
+                        $("#user-input").text(userInput);
+                        $("#com-input").text(comSelection);
+                        $("#final-result").text("COM Wins!");
+                        losses = losses + 1;
+                } else if (userInput === "rock" && comSelection === "scissors") {
+                        $("#user-input").text(userInput);
+                        $("#com-input").text(comSelection);
+                        $("#final-result").text("User Wins!");
+                        wins = wins + 1;
+                } else if (userInput === "paper" && comSelection === "rock") {
+                        $("#user-input").text(userInput);
+                        $("#com-input").text(comSelection);
+                        $("#final-result").text("User Wins!");
+                        wins = wins + 1;
+                } else if (userInput === "paper" && comSelection === "scissors") {
+                        $("#user-input").text(userInput);
+                        $("#com-input").text(comSelection);
+                        $("#final-result").text("COM Wins!");
+                        losses = losses + 1;
+                } else if (userInput === "scissors" && comSelection === "rock") {
+                        $("#user-input").text(userInput);
+                        $("#com-input").text(comSelection);
+                        $("#final-result").text("COM Wins!");
+                        losses = losses + 1;
+                } else if (userInput === "scissors" && comSelection === "paper") {
+                        $("#user-input").text(userInput);
+                        $("#com-input").text(comSelection);
+                        $("#final-result").text("User Wins!");
+                        wins = wins + 1;
+                } else if (userInput === "gainsboro") {
+                        $("#user-input").text("Gainsboro");
+                        $("#com-input").text("Literally Gone");
+                        $("#final-result").text("Supreme Annihilation!!");
+                        $("body").css("color","gainsboro");
+                        wins = wins + 1;
+                } else if (userInput === "tie") {
+                        $("#user-input").text("tie");
+                        $("#com-input").text("tie");
+                        $("#final-result").text("Here is your free tie");
+                } else {
+                        $("#user-input").text("EROOOOOOR");
+                        $("#com-input").text("EROOOOOOOR");
+                        $("#final-result").text("EROOOOOOOR");  
+                }
+                $("#wins").text("Wins : " + wins);
+                $("#losses").text("Losses : " + losses);
         });
 }
 $(document).ready(pageload);
