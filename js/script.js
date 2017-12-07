@@ -17,13 +17,17 @@
 // *************************** YOUR CODE BELOW *******************************
 //******************TEST EARLY AND OFTEN USING console.log() ******************
 //****************** SERIOUSLY TEST USING console.log()!!! ******************
-//GLOBAL VARIABLES
+//GLOBAL VARIABLES 
 function pageload (){
+        // Variables for wins and losses
         var wins = 0;
         var losses = 0;
         $("#button").click(function(){
+                // Reverts changes made from the "gainsboro" user choice
                 $("body").css("color","black");
+                // Tracks what is kept in the input for the User's choice
                 var userInput = $("#input").val().toLowerCase();
+                // Create the computer choice through randomly choosing an option from an array
                 var comInput = Math.floor(Math.random()*3);
                 var comOption = [
                         "rock",
@@ -31,6 +35,7 @@ function pageload (){
                         "scissors"
                 ];
                 var comSelection = comOption[comInput];
+                // Conditionals that looks at the user and com input to give a result
                 if (userInput === comSelection) {
                         $("#user-input").text(userInput);
                         $("#com-input").text(comSelection);
@@ -84,6 +89,7 @@ function pageload (){
                 $("#losses").text("Losses : " + losses);
         });
 }
+// Loads the document
 $(document).ready(pageload);
 
 
